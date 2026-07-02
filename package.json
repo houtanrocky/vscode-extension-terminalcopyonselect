@@ -2,7 +2,7 @@
   "publisher": "HoutanRocky",
   "name": "terminal-copy-on-select",
   "displayName": "Terminal Copy On Select",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "packageManager": "pnpm@10.27.0",
   "description": "Automatically copy selected text from the VS Code integrated terminal to your clipboard.",
