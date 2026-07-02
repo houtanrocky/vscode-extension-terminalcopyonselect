@@ -163,3 +163,25 @@ VS Code terminal copy on select, integrated terminal clipboard, automatic termin
 ## License
 
 [MIT](LICENSE.md)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/qewr1324"><img src="https://avatars.githubusercontent.com/qewr1324?v=4&s=100" width="100px;" alt="qewr1324" style="border-radius: 50%;"><br /><sub><b>qewr1324</b></sub></a><br /><a href="https://github.com/houtan-rocky/vscode-extension-terminalcopyonselect/commits?author=qewr1324" title="Documentation">📖</a> <a href="https://github.com/houtan-rocky/vscode-extension-terminalcopyonselect/commits?author=qewr1324" title="Heart">❤️</a> <a href="#ideas-qewr1324" title="Design">🎨</a></td>
+      <!-- بقیه مشارکت‌کنندگان اینجا قرار می‌گیرند -->
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
