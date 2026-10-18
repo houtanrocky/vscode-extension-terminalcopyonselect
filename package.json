@@ -4,17 +4,18 @@
   "displayName": "Terminal Copy On Select",
   "version": "0.1.2",
   "private": false,
+  "type": "module",
   "packageManager": "pnpm@10.27.0",
   "description": "Automatically copy selected text from the VS Code integrated terminal to your clipboard.",
   "author": "Houtan Rocky <houtan.rocky@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/houtan-rocky/vscode-extension-terminalcopyonselect#readme",
+  "homepage": "https://houtanrocky.github.io/vscode-extension-terminalcopyonselect/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/houtan-rocky/vscode-extension-terminalcopyonselect"
+    "url": "https://github.com/houtanrocky/vscode-extension-terminalcopyonselect"
   },
   "bugs": {
-    "url": "https://github.com/houtan-rocky/vscode-extension-terminalcopyonselect/issues"
+    "url": "https://github.com/houtanrocky/vscode-extension-terminalcopyonselect/issues"
   },
   "keywords": [
     "terminal",
@@ -35,14 +36,10 @@
     "theme": "dark"
   },
   "preview": false,
-  "qna": "marketplace",
+  "qna": "https://houtanrocky.github.io/vscode-extension-terminalcopyonselect/support/",
+  "extensionKind": ["ui"],
   "main": "./dist/index.cjs",
   "icon": "res/icon.png",
-  "files": [
-    "LICENSE.md",
-    "dist/*",
-    "res/*"
-  ],
   "engines": {
     "vscode": "^1.97.0"
   },
@@ -50,42 +47,46 @@
     "onStartupFinished"
   ],
   "contributes": {
-    "commands": [],
-    "configuration": {
-      "type": "object",
-      "title": "Terminal Copy On Select",
-      "properties": {}
-    }
+    "commands": [
+      { "command": "terminalCopyOnSelect.enable", "title": "Enable Copy on Selection", "category": "Terminal Copy On Select" },
+      { "command": "terminalCopyOnSelect.disable", "title": "Disable Copy on Selection", "category": "Terminal Copy On Select" },
+      { "command": "terminalCopyOnSelect.openSettings", "title": "Open Settings", "category": "Terminal Copy On Select" },
+      { "command": "terminalCopyOnSelect.openSupport", "title": "Get Help", "category": "Terminal Copy On Select" }
+    ]
   },
   "scripts": {
-    "build": "tsdown src/index.ts --external vscode",
-    "dev": "nr build --watch --sourcemap",
-    "prepare": "nr update",
-    "update": "vscode-ext-gen --output src/generated/meta.ts && node scripts/clean-generated-meta.mjs",
+    "build": "tsdown",
+    "dev": "pnpm build --watch --sourcemap",
     "lint": "eslint .",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "site:build": "node scripts/build-site.mjs",
+    "site:check": "node --test test/site.test.mjs",
+    "site:preview": "node scripts/preview-site.mjs",
+    "site:test": "playwright test",
     "typecheck": "tsc --noEmit",
-    "vscode:prepublish": "nr build",
+    "vscode:prepublish": "pnpm build",
     "release": "bumpp",
     "ext:package": "vsce package --no-dependencies",
-    "ext:publish": "vsxpub --no-dependencies"
+    "ext:publish": "vsce publish --no-dependencies",
+    "ext:publish:openvsx": "ovsx publish --no-dependencies"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.7.3",
-    "@antfu/ni": "^28.0.0",
+    "@eslint/js": "^9.39.2",
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
+    "@typescript-eslint/parser": "^8.52.0",
+    "@playwright/test": "^1.56.0",
+    "@axe-core/playwright": "^4.11.0",
     "@types/node": "^25.0.3",
     "@types/vscode": "^1.97.0",
-    "@vscode/vsce": "^3.7.1",
+    "@vscode/vsce": "^4.0.0",
     "bumpp": "^10.3.2",
     "eslint": "^9.39.2",
-    "ovsx": "^0.10.7",
-    "reactive-vscode": "^1.0.0-beta.2",
+    "ovsx": "^1.3.0",
     "taze": "^19.9.2",
     "tsdown": "^0.19.0-beta.3",
     "typescript": "^5.9.3",
     "vite": "^7.3.0",
-    "vitest": "^4.0.16",
-    "vscode-ext-gen": "^1.5.1",
-    "vsxpub": "^0.1.2"
+    "vitest": "^4.0.16"
   }
 }

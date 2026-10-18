@@ -1,5 +1,4 @@
 // @ts-check
-import antfu from '@antfu/eslint-config'
 import js from '@eslint/js'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
@@ -9,6 +8,9 @@ export default [
     ignores: [
       'dist',
       'src/generated',
+      'site-dist',
+      'playwright-report',
+      'test-results',
     ],
   },
   {
@@ -17,10 +19,14 @@ export default [
       ecmaVersion: 'latest',
       parser: tsParser,
       sourceType: 'module',
+      globals: {
+        process: 'readonly', console: 'readonly', URL: 'readonly',
+        document: 'readonly', navigator: 'readonly', window: 'readonly',
+        setTimeout: 'readonly', clearTimeout: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      antfu,
     },
     rules: {
       ...js.configs.recommended.rules,
@@ -28,4 +34,5 @@ export default [
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
+  { files: ['**/*.ts'], rules: { 'no-undef': 'off' } },
 ]

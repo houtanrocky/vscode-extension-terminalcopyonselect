@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Setup, troubleshooting, and frequently asked questions
+    url: https://houtanrocky.github.io/vscode-extension-terminalcopyonselect/support/
+    about: Find an answer or learn how to change the built-in VS Code setting.

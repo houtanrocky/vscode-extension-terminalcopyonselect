@@ -2,44 +2,34 @@ name: Publish Extension
 
 on:
   push:
-    tags:
-      - v*
+    tags: ['v*']
+
+permissions:
+  contents: read
 
 jobs:
-  publish-extension:
-    permissions:
-      id-token: write
-      contents: write
-      actions: write
-
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Set node
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
+          node-version: 24
           cache: pnpm
-
-      - run: npx changelogithub
+      - run: pnpm install --frozen-lockfile
+      - name: Verify tag matches extension version
+        run: node -e "if (process.env.GITHUB_REF_NAME !== 'v' + require('./package.json').version) process.exit(1)"
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm site:check
+      - run: pnpm ext:package
+      - name: Publish to Visual Studio Marketplace
+        run: pnpm ext:publish
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-      - run: pnpm install
-
-      - name: Generate .vsix file
-        run: pnpm package
-
-      - name: Publish Extension
-        run: npx vsxpub --no-dependencies
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      - name: Publish to Open VSX
+        run: pnpm ext:publish:openvsx
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VSCE_PAT: ${{secrets.VSCE_PAT}}
-          OVSX_PAT: ${{secrets.OVSX_PAT}}
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}

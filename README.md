@@ -1,81 +1,46 @@
-# Terminal Copy On Select
+# Terminal Copy On Select for VS Code
 
-Automatically copy selected text from the VS Code integrated terminal to your clipboard.
+**Select terminal text. Paste anywhere. Keep your flow.**
 
-Terminal Copy On Select is a lightweight productivity extension for developers who copy terminal output often. Select text in the integrated terminal and paste it anywhere—no right-click menu, no `Ctrl+C`, and no extra command required.
+Automatically copy selected text from the VS Code integrated terminal to your clipboard. A small, free, open-source extension for copying build logs, error messages, file paths, and commands on Windows, macOS, and Linux.
 
-<!-- <p align="center">
-  <img src="https://houtanrocky.gallerycdn.vsassets.io/extensions/houtanrocky/terminal-copy-on-select/0.1.1/1782969918098/Microsoft.VisualStudio.Services.Icons.Default" alt="Logo" width="128" height="128">
-</p> -->
+[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/HoutanRocky.terminal-copy-on-select?label=Marketplace&color=55703b)](https://marketplace.visualstudio.com/items?itemName=HoutanRocky.terminal-copy-on-select)
+[![CI](https://github.com/houtanrocky/vscode-extension-terminalcopyonselect/actions/workflows/ci.yml/badge.svg)](https://github.com/houtanrocky/vscode-extension-terminalcopyonselect/actions/workflows/ci.yml)
+[![MIT license](https://img.shields.io/github/license/houtanrocky/vscode-extension-terminalcopyonselect)](LICENSE.md)
 
-<!-- ![Icon](./images/Icon.png) -->
+[![Terminal Copy On Select: Select it. Consider it copied.](website/assets/social-card.png)](https://houtanrocky.github.io/vscode-extension-terminalcopyonselect/)
 
-<p align="center">
-  <img src="./images/Icon.png" alt="Logo" width="128" height="128">
-</p>
+[Install for VS Code](https://marketplace.visualstudio.com/items?itemName=HoutanRocky.terminal-copy-on-select) · [Website](https://houtanrocky.github.io/vscode-extension-terminalcopyonselect/) · [Setup guide](https://houtanrocky.github.io/vscode-extension-terminalcopyonselect/guide/) · [Support](https://houtanrocky.github.io/vscode-extension-terminalcopyonselect/support/)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Terminal%20Copy%20On%20Select-007ACC?style=for-the-badge&labelColor=555555&logoColor=white" alt="Terminal Copy On Select"/>
-</p>
+## How it works
 
-<p align="center">
-<a href="https://kermanx.github.io/Terminal Copy On Select/" target="_blank">
-  <!-- <img src="https://img.shields.io/github/v/release/houtan-rocky/vscode-extension-terminalcopyonselect?style=for-the-badge&color=007ACC" alt="Version">
-  <img src="https://img.shields.io/github/release-date/houtan-rocky/vscode-extension-terminalcopyonselect?style=for-the-badge&color=2b5a7a" alt="Release Date"> -->
-  <img src="https://img.shields.io/github/last-commit/houtan-rocky/vscode-extension-terminalcopyonselect?style=for-the-badge&color=2b5a7a" alt="Last Commit">
-  <img src="https://img.shields.io/github/contributors/houtan-rocky/vscode-extension-terminalcopyonselect?style=for-the-badge&color=007ACC" alt="Contributors">
-</a>
-</p>
+1. Install **Terminal Copy On Select** by **HoutanRocky**.
+2. Open **Terminal → New Terminal** in VS Code.
+3. Select some terminal output, then paste it into your editor, an issue, or another app.
 
-<p align="center">
-  <img src="https://img.shields.io/github/stars/houtan-rocky/vscode-extension-terminalcopyonselect?style=social" alt="GitHub stars">
-  <img src="https://img.shields.io/github/forks/houtan-rocky/vscode-extension-terminalcopyonselect?style=social" alt="GitHub forks">
-  <img src="https://img.shields.io/github/issues/houtan-rocky/vscode-extension-terminalcopyonselect" alt="GitHub issues">
-  <img src="https://img.shields.io/github/license/houtan-rocky/vscode-extension-terminalcopyonselect" alt="GitHub license">
-</p>
+The extension enables VS Code's native `terminal.integrated.copyOnSelection` setting when you have not explicitly configured it. VS Code performs the copying. Existing User, Workspace, and Workspace Folder preferences are preserved, including an explicit `false`.
 
-## Why Install It?
+## Install
 
-- **Copy terminal output faster**: select any text in the VS Code terminal and it is copied automatically.
-- **Reduce context switching**: skip right-click menus and keyboard shortcuts when collecting logs, paths, commands, or error messages.
-- **Use native VS Code behavior**: enables the built-in `terminal.integrated.copyOnSelection` setting when you have not configured it yet.
-- **Keep your preferences**: existing user, workspace, and workspace-folder terminal copy settings are respected.
-- **Stay lightweight**: no commands, no UI clutter, and no runtime dependencies.
+Find the extension in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HoutanRocky.terminal-copy-on-select), or run:
 
-## Features
+```sh
+code --install-extension HoutanRocky.terminal-copy-on-select
+```
 
-- Automatic terminal copy on selection
-- Works with the VS Code integrated terminal
-- Supports shells such as bash, zsh, fish, PowerShell, Command Prompt, and WSL terminals
-- Useful for copying logs, stack traces, file paths, command output, and snippets
-- Zero configuration for most users
+Requires VS Code 1.97 or a compatible API version. There is currently no published Open VSX listing. For compatible editors such as VSCodium, [build a VSIX from source](CONTRIBUTING.md) and use **Extensions: Install from VSIX**.
 
-## Installation
+## Why use it?
 
-### VS Code Marketplace
+- Copy terminal output automatically without a separate copy action.
+- Use your existing PowerShell, Command Prompt, bash, zsh, fish, or WSL terminal.
+- Keep your keyboard shortcuts and explicit settings.
+- Use a small extension with no runtime library dependencies, telemetry, or clipboard monitoring.
+- Inspect the complete implementation in [src/index.ts](src/index.ts).
 
-1. Open VS Code.
-2. Go to **Extensions** with `Ctrl+Shift+X` or `Cmd+Shift+X`.
-3. Search for `Terminal Copy On Select`.
-4. Click **Install**.
+## Settings and turning it off
 
-You can also install it from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=houtan-rocky.terminal-copy-on-select).
-
-### Open VSX
-
-Install from [Open VSX](https://open-vsx.org/extension/houtan-rocky/terminal-copy-on-select) for compatible editors such as VSCodium.
-
-## Usage
-
-1. Open the integrated terminal with `` Ctrl+` `` or `` Cmd+` ``.
-2. Select text in the terminal.
-3. Paste the copied text anywhere with `Ctrl+V` or `Cmd+V`.
-
-That is it. Terminal selections copy automatically after the extension activates.
-
-## Configuration
-
-This extension uses VS Code's built-in terminal setting:
+Open VS Code Settings and search for `terminal.integrated.copyOnSelection`, or add this to your User Settings JSON:
 
 ```json
 {
@@ -83,86 +48,63 @@ This extension uses VS Code's built-in terminal setting:
 }
 ```
 
-If `terminal.integrated.copyOnSelection` is already configured in your user, workspace, or workspace-folder settings, the extension leaves your value unchanged.
+To stop automatic copying, set it to `false`. The extension respects that explicit choice on future starts. **Disabling or uninstalling the extension does not reset the saved setting.**
 
-To turn the behavior off later, set the same option to `false` in your VS Code settings:
+You can enable this built-in setting manually without the extension. The extension is a convenience for discovering and enabling it, and including it in your extension setup.
 
-```json
-{
-  "terminal.integrated.copyOnSelection": false
-}
-```
+## Command Palette controls
 
-## Commands
+The next release adds these commands under **Terminal Copy On Select**; they are also available when running this source in an Extension Development Host:
 
-This extension does not add commands. It quietly enables terminal copy-on-select behavior and keeps VS Code's command palette clean.
+| Command | Action |
+| --- | --- |
+| Enable Copy on Selection | Set the user preference to true. |
+| Disable Copy on Selection | Set the user preference to false. |
+| Open Settings | Open the exact native setting. |
+| Get Help | Open the public support page. |
+
+Enable and disable commands change the user preference. If a workspace or remote setting overrides it, the extension explains where to review the effective value.
 
 ## Troubleshooting
 
-- **Nothing copies after selecting terminal text**: confirm `terminal.integrated.copyOnSelection` is set to `true`.
-- **The setting keeps a custom value**: remove the user, workspace, or workspace-folder override if you want the extension to enable it automatically.
-- **Clipboard behavior differs by shell or OS**: restart VS Code after installation and test again in the integrated terminal.
+**Selections do not copy:** Check that `terminal.integrated.copyOnSelection` is true and review applicable Workspace or Remote overrides. If needed after installation, run **Developer: Reload Window**.
 
-## FAQ
+**Vim or tmux captures the mouse:** Consult [VS Code's selection guidance](https://code.visualstudio.com/docs/terminal/basics#_selection) for the appropriate modifier while dragging.
 
-### Does this copy editor selections?
+**Editor selections do not copy:** This extension affects the integrated terminal. Editor files, the Output panel, and the Debug Console are outside its scope.
 
-No. It only affects selected text in the VS Code integrated terminal.
+Visit the [searchable support page](https://houtanrocky.github.io/vscode-extension-terminalcopyonselect/support/) for more answers, or [report a bug](https://github.com/houtanrocky/vscode-extension-terminalcopyonselect/issues/new?template=bug_report.yml).
 
-### Does it replace `Ctrl+C` or `Cmd+C`?
+## Privacy
 
-No. Keyboard copy shortcuts continue to work normally.
+The extension does not read terminal output or clipboard content, collect analytics, or make network requests. It configures a native VS Code setting. [Read the privacy explanation](https://houtanrocky.github.io/vscode-extension-terminalcopyonselect/privacy/).
 
-### Does it change my existing settings?
+## Development and contributing
 
-Only when `terminal.integrated.copyOnSelection` has not been set before. Existing user, workspace, and workspace-folder values are preserved.
+Use Node.js 24 and pnpm 10.27.0:
 
-## Requirements
-
-- VS Code `1.97.0` or newer
-- Windows, macOS, or Linux
-
-## Use Cases
-
-- Copy build logs, stack traces, test failures, and command output
-- Copy file paths, URLs, environment variables, and shell snippets
-- Speed up debugging, support replies, issue reports, and documentation writing
-
-## Development
-
-```bash
-pnpm install
-pnpm run update
-pnpm run build
+```sh
+pnpm install --frozen-lockfile
+pnpm typecheck
+pnpm lint
 pnpm test
+pnpm build
+pnpm ext:package
 ```
 
-## Contributing
+For the GitHub Pages website:
 
-Issues and pull requests are welcome. Before submitting a change, run the relevant checks:
-
-```bash
-pnpm run typecheck
-pnpm run lint
-pnpm test
+```sh
+pnpm site:check
+pnpm site:preview
+pnpm site:test
 ```
 
-## Publishing
-
-Before publishing, make sure `publisher`, repository links, icon, version, and Marketplace URLs match the final extension identity.
-
-```bash
-pnpm run ext:package
-pnpm run ext:publish
-```
-
-## Keywords
-
-VS Code terminal copy on select, integrated terminal clipboard, automatic terminal copy, copy selected terminal text, terminal clipboard, copy terminal output, VS Code productivity extension.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for browser checks and [docs/DISCOVERABILITY.md](docs/DISCOVERABILITY.md) for Pages deployment, search-engine submission, and release setup. Website deployment and Marketplace publication are separate. See [CHANGELOG.md](CHANGELOG.md) for pending extension changes.
 
 ## License
 
-[MIT](LICENSE.md)
+[MIT](LICENSE.md). Built by [Houtan Rocky](https://github.com/houtanrocky).
 
 ## Contributors ✨
 
@@ -174,7 +116,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/qewr1324"><img src="https://avatars.githubusercontent.com/qewr1324?v=4&s=100" width="100px;" alt="qewr1324" style="border-radius: 50%;"><br /><sub><b>qewr1324</b></sub></a><br /><a href="https://github.com/houtan-rocky/vscode-extension-terminalcopyonselect/commits?author=qewr1324" title="Documentation">📖</a> <a href="https://github.com/houtan-rocky/vscode-extension-terminalcopyonselect/commits?author=qewr1324" title="Heart">❤️</a> <a href="#ideas-qewr1324" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/qewr1324"><img src="https://avatars.githubusercontent.com/qewr1324?v=4&s=100" width="100px;" alt="qewr1324" style="border-radius: 50%;"><br /><sub><b>qewr1324</b></sub></a><br /><a href="https://github.com/houtanrocky/vscode-extension-terminalcopyonselect/commits?author=qewr1324" title="Documentation">📖</a> <a href="https://github.com/houtanrocky/vscode-extension-terminalcopyonselect/commits?author=qewr1324" title="Heart">❤️</a> <a href="#ideas-qewr1324" title="Design">🎨</a></td>
       <!-- بقیه مشارکت‌کنندگان اینجا قرار می‌گیرند -->
     </tr>
   </tbody>

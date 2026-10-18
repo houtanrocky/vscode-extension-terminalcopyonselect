@@ -1,4 +1,3 @@
-import { execFileSync } from 'node:child_process'
 import { defineConfig } from 'tsdown'
 
 export default defineConfig({
@@ -11,9 +10,4 @@ export default defineConfig({
   external: [
     'vscode',
   ],
-  hooks(hooks) {
-    hooks.hookOnce('build:prepare', () => {
-      execFileSync('pnpm', ['run', 'update'], { stdio: 'inherit' })
-    })
-  },
 })

@@ -9,9 +9,14 @@ dist
 lib-cov
 logs
 node_modules
+.pnpm-store
 temp
 src/generated
 .env
+site-dist
+playwright-report
+test-results
+artifacts
 
 *AGENTS*
 .AGENTS.md.swp

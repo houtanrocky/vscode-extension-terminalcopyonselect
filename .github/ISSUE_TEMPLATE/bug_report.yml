@@ -1,0 +1,40 @@
+name: Bug report
+description: Report a problem with terminal copy on selection.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the [support guide](https://houtanrocky.github.io/vscode-extension-terminalcopyonselect/support/) and search existing issues first. Reports are public; remove secrets and private terminal output.
+  - type: input
+    id: vscode
+    attributes:
+      label: VS Code or compatible editor version
+      placeholder: "From Help > About"
+    validations:
+      required: true
+  - type: input
+    id: extension
+    attributes:
+      label: Extension version
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Operating system, shell, and remote environment
+      placeholder: "Windows 11, PowerShell, local / WSL / SSH / Dev Container"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include what you expected and what actually happened.
+    validations:
+      required: true
+  - type: textarea
+    id: settings
+    attributes:
+      label: Relevant settings and logs
+      description: Include the copyOnSelection value and its scope. If available, check Output > Terminal Copy On Select. Remove sensitive information.
