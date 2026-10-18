@@ -2,7 +2,7 @@
   "publisher": "HoutanRocky",
   "name": "terminal-copy-on-select",
   "displayName": "Terminal Copy On Select",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": false,
   "type": "module",
   "packageManager": "pnpm@10.27.0",
